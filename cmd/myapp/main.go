@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello World!");
+	url := flag.String("url", "", "Download URL")
+
+	flag.Parse()
+
+	if *url == "" {
+		fmt.Println("Error: Please provide a URL using flag -url")
+		return
+	}
+
+	fmt.Println("Received URL:",*url)
 }
